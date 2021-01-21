@@ -1,0 +1,56 @@
+code of main2_.html
+.my_div [role="my_div2"]{
+            border: 1px solid purple;
+            width:80%;
+            height: 10%;
+        } 
+
+WORK
+  .my_div.a{
+            padding:10px;
+            left: 0;
+            top: 0;
+            position:relative;
+        }
+.a.nexta {
+    margin-top:20px;
+}
+
+.nexta.a [role="my_div2"]{
+            border: 1px solid CadetBlue;
+            width:80%;
+            height: 10%;
+}
+
+NOT WORK
+ .my_div.b {
+            padding:15px;
+            left: 0;
+            top: 0;
+            position:relative;
+            margin-top:50px;
+        }
+
+    
+        .b [role ="my_div2"]{
+            border: 1px solid #A52A2A ;
+            width:80%;
+            height: 10%;
+           
+        }
+
+NEW SET
+
+  .b.nextb{
+            margin-top:50px;
+        }
+        .nextb.farb{
+            border-style: dotted;
+        }
+    
+        .b [role ="my_div2"]{
+            border: 3px solid #A52A2A ;
+            width:80%;
+            height: 10%;
+           
+        }

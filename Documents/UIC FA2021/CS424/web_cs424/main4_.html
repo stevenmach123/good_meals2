@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .demo_wrap {
+    position: relative;
+    background: #5C97FF;
+    overflow: hidden;
+}
+.demo_wrap h1 {
+    padding: 50px;
+    position: relative;
+    z-index: 2;
+}
+/* You could use :after - it doesn't really matter */
+.demo_wrap:before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.6;
+    background-image: url('https://assets.digitalocean.com/labs/images/community_bg.png');
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    background-size: cover;
+    }
+ </style>
+ </head>
+ 
+ <div class="demo_wrap">
+    <h1>Hello World!</h1>
+  </div>
+
+ </html>

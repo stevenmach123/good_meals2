@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <style>
+        ins, [role =“ola”]{
+        text-decoration: underline;
+        padding: 50px;
+        border : 1px solid #4CAF50;
+        
+        
+        }
+        div, [role="o"]{
+            border: 1px solid orange;
+            width: 400px; 
+            padding :20px;
+            position : relative;
+        }
+        
+        div .my_div{
+            border: 1px solid purple;
+            width:100%;
+            height: 100px;
+        }
+        .my_div.a{
+            padding:10px;
+            left: 0;
+            top: 0;
+            position:relative;
+        }
+        .a.nexta {
+            margin-top:20px;
+        }
+
+        .my_div.b {
+            padding:15px;
+            left: 0;
+            top: 0;
+            position:relative;
+            
+        }
+        
+        .b.nextb{
+            margin-top:50px;
+        }
+        .farb{
+            border-style: dotted;
+        }
+    
+        .nextb.farb [role ="my_div2"]{
+            border: 3px solid #8FBC8F;
+            width:80%;
+            height: 10%;
+           
+        }
+      
+        .nexta [role="my_div2"]{
+            border: 3px solid CadetBlue;
+            width:80%;
+            height: 10%;
+        }
+       
+        [role ="o"] [role="oi"]{
+            text-decoration:line-through;
+            padding: 10px;
+            border : 1px solid #4CAF50;   
+        }
+        [role ="o"] p{
+            text-decoration: underline;
+            color: pink;
+            
+        }
+        div p{
+            text-decoration: underline;
+            text-decoration-color:aqua;
+
+        }
+        div [role="oa"]{
+            text-decoration-style: solid;
+            text-decoration-color:blue;
+        }
+        [role ="o"].a{
+            word-wrap: normal;
+        }
+        [role ="o"].b{
+            word-wrap: break-word;
+        }
+       
+
+     </style>
+
+
+
+    <h2>Featured Article</h2>
+    <h3><a href="https://www.google.com/search?q=dasdad&rlz=1C5CHFA_enVN749VN749&oq=dasdad&aqs=chrome..69i57j69i59j69i60l3j69i61j69i60j69i61.2604j0j7&sourceid=chrome&ie=UTF-8">HTML5 in Smashing Magazine!</a></h3>
+    
+</nav>
+</head>
+<body>
+    <p>hello</p>
+   <div role="o" class="a">
+        <p role="oi">fdfdfdf</p>
+        <p role= "oa"> uiui</p>
+        <p> aa aa aaaaaaaaaaaaaaaaaa</p>
+        <div class ="my_div a nexta">
+            <p>my_div</p>
+            <div role="my_div2"></div>
+        </div>
+        <div class ="my_div b nextb farb">
+            <div role="my_div2"></div>
+        </div>
+        
+        <li><a href="#">home</a></li>
+        <li><a href="#">portfolio</a></li>
+    
+        <li><a href="#">blog</a></li>
+        <li><a href="#">contact</a></li> 
+  </div>
+  <div role="o" class="b">
+      <p>a a aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaa</p> 
+  </div>
+
+  <div role ="option"> <p role="oa">fsdfdddf</p> </div>
+
+
+
+  <div role ="o" >
+    <form>
+        <ul>
+          <li><label>Apple: <input type="radio" name="fruit" ></label></li>
+          <li><label>Orange: <input type="radio" name="fruit" ></label></li>
+          <li><label>Banana: <input type="radio" name="fruit" value="banana"></label></li>
+        </ul>
+      </form>
+   </div>
+    <p>We are <ins role="ola">purple Tyrannosaurus Rex called Tiny</ins></p>
+    <p><time>March 10 2010</time></p>
+  
+
+</body>
+
+</html>

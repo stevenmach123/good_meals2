@@ -1,0 +1,27 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+
+    
+    "version": "0.1.0",
+    "configurations": [
+        {
+            "name": "attach localhost",
+            "type": "chrome",
+            "request": "attach",
+            "port":5500,
+            "url": "file:///Users/me294llamaxoption/Documents/UIC%20FA2021/CS424/web_cs424/main5_.html",
+            "webRoot": "${workspaceFolder}/out"
+        },
+        {
+            "name": "Launch main5_.html",
+            "type": "chrome",
+            "request": "launch",
+            "file": "${workspaceFolder}/main5_.html"
+        },
+    ]
+    
+   
+
+}

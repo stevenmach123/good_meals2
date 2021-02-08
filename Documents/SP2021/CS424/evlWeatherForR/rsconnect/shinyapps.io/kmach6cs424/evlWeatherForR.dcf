@@ -1,0 +1,12 @@
+name: evlWeatherForR
+title: evlWeatherForR
+username:
+account: kmach6cs424
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3500327
+bundleId: 4125078
+url: https://kmach6cs424.shinyapps.io/evlWeatherForR/
+when: 1611224556.11442
+asMultiple: FALSE
+asStatic: FALSE

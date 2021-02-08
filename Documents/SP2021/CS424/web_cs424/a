@@ -1,0 +1,225 @@
+code of main2_.html
+.my_div [role="my_div2"]{
+            border: 1px solid purple;
+            width:80%;
+            height: 10%;
+        } 
+
+WORK
+  .my_div.a{
+            padding:10px;
+            left: 0;
+            top: 0;
+            position:relative;
+        }
+.a.nexta {
+    margin-top:20px;
+}
+
+.nexta.a [role="my_div2"]{
+            border: 1px solid CadetBlue;
+            width:80%;
+            height: 10%;
+}
+
+WORK
+ .my_div.b {
+            padding:15px;
+            left: 0;
+            top: 0;
+            position:relative;
+            margin-top:50px;
+        }
+
+    
+        .b [role ="my_div2"]{
+            border: 1px solid #A52A2A ;
+            width:80%;
+            height: 10%;
+           
+        }
+
+NEW SET
+
+  .b.nextb{
+            margin-top:50px;
+        }
+        .nextb.farb{
+            border-style: dotted;
+        }
+    
+        .b [role ="my_div2"]{
+            border: 3px solid #A52A2A ;
+            width:80%;
+            height: 10%;
+           
+        }
+
+
+
+
+.querySelector 
+.className
+span.textContent= 
+append(class1,class2)
+
+<h2 class="example">
+document.querySelector(".example").style
+
+<select>something in  </select>
+document.querySelectorAll("select");
+
+var hasChild = parentDiv.querySelector("#child2") != null;
+
+
+
+
+.mystyle {
+  width: 300px;
+  height: 50px;
+  background-color: coral;
+  color: white;
+  font-size: 25px;
+}
+<div id="myDIV">
+I am a DIV element
+</div>
+document.getElementById("myDIV").classList.add("mystyle");
+
+
+var paragraph = document.getElementById("p");
+paragraph.textContent += "This just got added";
+
+
+var image = document.createElement("img");
+var imageParent = document.getElementById("body");
+image.id = "id";
+image.className = "class";
+
+
+
+
+<div class="cibox" id="cebox">
+    <p class="c"> ha</p>
+</div>
+document.querySelector("#cebox.c").style.fontSize = "20px"; NOT WORK
+document.querySelector(".cibox.c").style.fontSize = WORK
+document.querySelector("div.c").style.fontSize = "20px"; NOT WORK 
+
+<div class="cibox" id="cebox">
+    <p class="cibox c"> ha</p>
+</div>
+document.querySelector(".c").style.fontSize = WORK
+document.querySelector(".cibox.c").style.fontSize = WORK
+
+org_html = document.getElementById("slidesContainer").innerHTML;
+new_html = "<div id='slidesInner'>" + org_html + "</div>";
+document.getElementById("slidesContainer").innerHTML = new_html;
+
+querySelectorAll(".cibox").border = 2px solid green; 
+
+
+.itembox{
+
+}
+
+.itembox{
+  display:flex;
+  flow-flex: column;
+  allign-item:center;
+  justify-content:space-even 
+
+}
+var big_items = document.querySelector(".big_items");
+
+ 
+div_image = createElement("IMG");
+div_image.src = 
+div_image.setAttribute("src","path")
+document.getElementById('buttonLED'+id).setAttribute('onclick','writeLED(1,1)')
+
+
+function sellItems(links,names,prices,mydiv){
+    for(let i=0;i<links.length;i++ ){
+        var item = document.createElement("div");
+        var but = document.createElement("button");
+        var my_h =  document.createElement("h4");
+        var my_p  = document.createElement("h4"); 
+        var t_img = document.createElement("IMG");
+        
+        item.classList.add("itembox");
+        but.append(document.createTextNode("Add to Cart")  );
+        but.id = names[i]
+        my_h.textContent  += names[i];
+        my_p.textContent  += "$"+prices[i];
+        
+        t_img.src =  links[i];
+        t_img.width ="100";
+        t_img.height ="100";
+        
+
+        item.append(t_img,but,my_h,my_p);
+        mydiv.appendChild(item);
+    }
+   
+}
+
+function addItem(link,name,price,my_div){
+    var item = document.createElement("div");
+    var my_h =  document.createElement("p");
+    var t_img = document.createElement("IMG");
+    var box_adjust = document.createElement("div");
+    var my_p  = document.createElement("h4"); 
+
+    item.classList.add("itembox");   
+    item.style.width = "200px";
+    my_h.textContent += name;
+    t_img.src =  link; 
+    t_img.width ="100";
+    t_img.height ="100";
+    my_p.textContent  += "$"+price;
+
+    var inc = document.createElement("div");
+    var dec = document.createElement("div");
+    var amount_box = document.createElement("div");
+    box_adjust.classList.add("adjust_amount");
+    amount_box.classList.add("adjust_text");
+
+    inc.append(document.createTextNode("+"));
+    dec.append(document.createTextNode("-"));
+    amount_box.append(document.createTextNode("0"));
+    
+   
+    inc.id ="name"+"-"+"inc";
+    dec.id ="name"+"-"+"dec";
+    inc_id = "#"+inc.id;
+    dec_id ="#"+dec.id;
+    $(inc_id).hover(function(){
+        $(this).css("background-color":"pink","color":"white");
+    });
+
+    $(dec_id).hover(function(){
+         $(this).css("background-color":"pink","color":"white");
+    });
+
+    
+
+    box_adjust.append(dec,amount_box,inc) ;
+    item.append(t_img,name,my_p,box_adjust)
+    my_div.append(item);
+
+
+    id_inc = "#"+name+"inc";
+    id_dec = #+name+"dec";
+    
+    
+}
+
+sellItems(tlink,tname,tprice,big_items);
+
+id_inc = "#"+name+"inc"
+id_dec = #+name+"dec"
+
+$("#inc").hover(
+    this.style.backgroundColor = "red";
+)

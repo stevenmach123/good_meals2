@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+      html{
+        background-image: url('images/light_brown.png');
+      }
+      h1{
+        font-family:'Times New Roman', Times, serif;
+        font-size: 35px;
+       }
+      h1 ins{
+        font-style:italic;
+        font-weight:300;
+        text-decoration-line: none;
+      }
+      section.title{
+          padding:0px 20px;
+          line-height: 0.3;
+          border : 1px solid orange;
+      }
+      section{
+          margin-bottom:30px;     
+      }
+      .center_box{ 
+        border: 1px solid orange;
+        display : flex;
+        align-items: flex-start;
+        justify-content: space-between;
+       }
+      
+    
+      .center_box div{
+        border: 1px solid orange;
+        position: relative;
+       
+      }
+      .center_box div:after{
+        content: ' ';
+        display: block;
+        position: absolute;
+     left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.15;
+    background-image: url('images/grey.png');
+    background-repeat: no-repeat;
+  
+    background-size: cover;
+      }
+
+      div.box_left{
+         width: 70%;
+         margin-right:40px;
+         height:600px;
+      }
+    
+      div.box_right{
+        width: 100%;
+        height:600px;
+      }
+
+  </style>
+
+</head>
+
+<section class="title" class="b">
+   <h1><ins>CS424</ins> WORK PAGE</h1>
+   <p>KHANG MACH</p>
+   <p>CLASS: SPRING 2021</p>
+</section>
+
+<section class="center_box">
+  <div class= "box_left">this is left</div>
+  <div class="box_right">this is right</div>
+</section>
+
+</html>

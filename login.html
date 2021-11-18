@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+<title>GOOD MEALS</title>
+	<!--[if lt IE 9]><script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script><![end if]-->
+    <link rel="shortcut icon" href="#">
+</head>
+<style>
+    body {
+        background: url(goodmeals.jpg) no-repeat center center fixed; 
+        background-size: cover; 
+    }
+
+    #login {
+        margin: auto;
+        margin-top: 10%;   
+        top: 400px;
+        width: 300px;
+        /* border: 3px solid black; */
+        padding: 10px;  
+        text-align: center;  
+        background-color: rgb(236, 193, 112);
+   }
+
+   #loginTable td{
+        margin: auto;
+        padding: 5px;
+   }
+
+   #username {
+       width: 200px;
+   }
+
+   #password {
+       width: 200px;
+   }
+
+   #loginBtn {
+       width: 80px;
+       height:40px;
+       margin:10px;
+       background-color: rgb(150, 247, 137);
+       border: none;
+   }
+
+   #loginBtn:hover {
+        outline: 2px solid rgb(158, 148, 148);
+   }
+
+   #wrongCredentials {
+        color: red;
+        visibility: hidden;
+   }
+
+</style>
+
+<script type="text/javascript" src="credentials.js"></script>
+
+<body>
+    <div id="login">
+        <h3 style="font-size: x-large;">Log in</h3>
+        <label  id="wrongCredentials">Wrong username or password</label>
+
+        <table id="loginTable">
+            <tr>
+                <td>Username</td>
+                <td><input type="text" id="username"></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="password" id="password"></td>
+            </tr>
+            
+        </table>
+            <button id="loginBtn" onclick="checkLoginCredentials()">Log in</button>
+        <p>Don't have account? <a href="register.html">Register</a></p>
+    </div>
+    
+</body>
+
+</html>

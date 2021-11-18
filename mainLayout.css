@@ -1,0 +1,164 @@
+html {
+    overflow: scroll;
+}
+
+
+/* index.html style */
+#frame {
+    margin: auto;
+    margin-top: 10%;   
+    top: 50%;
+    width: 50%;
+    padding: 10px;  
+    text-align: center;  
+    
+}
+
+#intro {
+
+}
+
+#introBtn {
+   width: 80px;
+   height: 40px;
+   font-size: 20px;
+}
+
+/* login.html style */
+#login {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+    border: 1px solid black;
+    text-align: center;
+}
+
+#loginTable td{
+    margin: auto;
+    padding: 5px;
+}
+
+#loginBtn {
+   width: 100px;
+   height: 50px;
+}
+
+
+/* 
+register.html style */
+#register {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    border: 1px solid black;
+}
+
+#register h3{
+    text-align: center;
+}
+
+#registerTable td{
+    margin: auto;
+    padding: 5px;
+    text-align: center;
+}
+
+#registerBtn {
+   width: 100px;
+   height: 40px;
+   font-size: 20px;
+   text-align: center;
+   margin: 10px;
+}
+
+#registerCheckboxes > *{
+   padding: 5px;
+   margin: 5px;
+}
+
+/* article.html style*/
+#info {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 85vw;
+        bottom: 0px;
+        width: auto;
+        height: auto;
+
+    }
+
+    #navigationBar {
+        position: absolute;
+        top: 0px;
+        left: 15vw;
+        right: 0px;
+        bottom: 95vh;
+        width: auto;
+        height: 5vh;
+        text-align: right;
+ 
+    }
+
+    #navigationBar li {
+        display: inline;
+    }
+    
+    .navSelection {
+        color: white;
+        background-color: blue;
+        padding: 5px;
+        margin: 1vw;
+    }
+
+    #title {
+        position: absolute;
+        top: 5vh;
+        left: 15vw;
+        right: 0px;
+        bottom: auto;
+        width: auto;
+        height: 5vh;
+    }
+
+    #foodOptions {
+        position: absolute;
+        top: 10vh;
+        left: 15vw;
+        right: 40vw;
+        bottom: 0px;
+        width: auto;
+        height: auto;
+
+    }
+
+    #calendar {
+        position: absolute;
+        top: 10vh;
+        left: 60vw;
+        right: 0px;
+        bottom: 50vh;
+        width: auto;
+        height: auto;
+    }
+
+    #lists {
+        position: absolute;
+        top: 50vh;
+        left: 60vw;
+        right: 0px;
+        bottom: 0px;
+        width: auto;
+        height: auto;
+
+    }
+
+
+
+
+

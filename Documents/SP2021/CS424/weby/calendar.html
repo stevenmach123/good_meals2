@@ -1,0 +1,219 @@
+<style>
+    /* CALENDAR */
+    #calendarBlock {
+        border:1px solid orange;
+        width: 390px;
+    }
+    
+    .weekdaysList {
+        background-color: rgb(228, 225, 225);
+    }
+    
+    .weekdaysList li{
+        display: inline-block;
+        width: 10.3%;
+     
+    }
+    
+    .daysList li{
+        list-style-type: none;
+        display: inline-block;
+        width: 9.8%;
+        text-align: center;
+        margin-bottom: 5px;
+        font-size:12px;
+        color: #777;
+    }
+    
+    /* .daysList li button:hover {
+        outline: 2px solid blue;
+    } */
+    
+    #calendarBlock button{
+        text-align: center;
+        background-color: transparent;
+        border: transparent;
+    }
+    
+    .monthBlock .prev {
+        float: left;
+        padding-top: 10px;
+    }
+      
+    .monthBlock .next {
+        float: right;
+        padding-top: 10px;
+    }
+    
+    .monthBlock ul li {
+        font-size: 16px;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+    }
+    
+    .monthBlock {  
+        width: 390px;
+        background: #a9fdec;
+        text-align: center;
+    }
+    
+      .monthBlock ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+      }
+    
+      #mealPlanTitle {
+        text-align: center;
+        background-color: rgb(236, 193, 112);
+        margin: 0px;
+      }
+    
+    .dayStatus {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+    
+    .dayStatus li{
+        display: inline-block;
+        margin-left: 50px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+    
+    #selectedStatus {
+        width: 15px;
+        height: 15px;
+        border: 2px solid red;
+        display: inline-block  ;
+    }
+    
+    #plannedStatus {
+        width: 15px;
+        height: 15px;
+        background-color: aqua;
+        display: inline-block;
+    }
+    
+    .selectedButton {
+        border: 1px solid blue;
+    }
+    
+    #calendarContent {
+        margin-left: 25px;
+        text-align: center;
+    }
+    
+    #calendarContent td,
+    th {
+        border: 1px solid black;
+        padding: 3px;
+    }
+    
+    #calendarContent th {
+        font-weight: bold;
+        background-color: #E6E6E6;
+        border: none;
+        padding-left: 20px;
+    }
+    
+    #calendarContent td {
+        border: none;
+        text-align: center;
+        padding-left: 15px;
+    }
+    
+    #calendarContent button{
+        border:none;
+        background-color: transparent;
+    }
+    
+    #calendarContent button:hover{
+        outline: 2px solid blue;
+    }
+    
+    </style>
+    
+    <!-- *************START CALENDAR******************* -->
+    <div id="calendarBlock">
+        
+            <div class="monthBlock">      
+                <ul>
+                    <li class="prev"><button>&#10094;</button></li>
+                    <li class="next"><button>&#10095;</button></li>
+                    <li id="month">April</li>
+                    <li id="year">2021</li>
+                </ul>
+            </div>
+          
+            <div id="calendar"></div>
+    
+            <ul class="dayStatus" > 
+                <li><label id="selectedStatus"></label>  selected</li>
+                <li><label id="plannedStatus"></label>  planned</li>
+            </ul>
+    </div>
+    
+    <script>
+        function createCalendar(elem, year, month) {
+            
+            let mon = month - 1; // months in JS are 0..11, not 1..12
+            let d = new Date(year, mon);
+    
+            let table = `<table id="calendarContent" style="border-collapse: collapse;">
+                        <tr><th>MO</th><th>TU</th><th>WE</th><th>TH</th><th>FR</th><th>SA</th><th>SU</th></tr><tr>`;
+    
+            // spaces for the first row
+            // from Monday till the first day of the month
+            // * * * 1  2  3  4
+            for (let i = 0; i < getDay(d); i++) {
+                table += '<td></td>';
+            }
+    
+            // <td> with actual dates
+            while (d.getMonth() == mon) {
+                table += '<td><button>' + d.getDate() + '</button></td>';
+    
+                if (getDay(d) % 7 == 6) { // sunday, last day of week - newline
+                    table += '</tr><tr>';
+                }
+    
+                d.setDate(d.getDate() + 1);
+            }
+    
+            // add spaces after last days of month for the last row
+            // 29 30 31 * * * *
+            if (getDay(d) != 0) {
+                for (let i = getDay(d); i < 7; i++) {
+                    table += '<td></td>';
+                }
+            }
+    
+            // close the table
+            table += '</tr></table>';
+    
+            elem.innerHTML = table;
+        }
+    
+        function getDay(date) { // get day number from 0 (monday) to 6 (sunday)
+          let day = date.getDay();
+          if (day == 0) day = 7; // make Sunday (0) the last day
+          return day - 1;
+        }
+    
+        
+        
+    
+    
+        function numberOfDays(month, year){
+            return new Date(year, month, 0).getDate();
+        }
+    
+        window.onload = function(){
+            createCalendar(calendar, 2012, 2);
+            
+        }
+    
+    </script>
+    
+    <!-- *************END CALENDAR******************* -->

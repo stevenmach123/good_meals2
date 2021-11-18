@@ -1,0 +1,516 @@
+section{
+    display: flex;
+    /* Hidden by default */
+   
+}
+.center_food{
+    width:550px;
+    
+   
+   /* border: 1px solid purple ;   */
+    
+}
+
+.center_user {
+    width :250px;
+    height:750px;
+    border:1px solid orange;
+    margin-right:10px;
+    
+}
+
+.center_user .informationPanel p{
+    padding: 0px;
+    margin: 5px;
+}
+
+.center_food .food_item{
+    visibility: hidden;
+    position:absolute; 
+}
+.center_list{
+    border:1px solid orange;
+    margin-left:20px; 
+    width: 390px;
+    
+    
+}
+
+p#type_title{
+    text-align: center;
+}
+
+.one_item{
+    display:flex;   
+    flex-flow: column;
+    width:180px; 
+    box-shadow: 0 10px 20px 4px rgba(0,0,0,0.15);
+    border:  1px solid orange;
+    justify-self: center;
+    margin-top:10px;
+   
+    
+}
+.one_item p{
+    text-align: center;
+    
+}
+/*.one_item p.one_nutri{ 
+    display:inline-block;
+}  */
+.tri_all{
+    border:1px solid salmon;
+    background-color: salmon;
+    color:rgb(255, 255, 255);
+}
+.tri0 {
+    font-size: 12px;
+    margin-top: 7px;
+}
+.tri2{
+    display:flex;
+    justify-content: space-evenly;
+    font-size: 10px;
+
+}
+
+/* 
+.one_item .tri1{
+    display:inline-block;
+    margin-left:9%;
+    margin-right:4%;
+    font-size: 10px;
+    margin-top: 0px;
+     border:1px solid salmon 
+}  */ 
+
+
+
+div.one_item img{
+    height: 120px;
+} 
+
+.ab:hover {
+    
+    box-shadow: 0 1px 2px 1px rgba(0,0,0,0.15);
+    background-color: rgb(90, 248, 138);
+}
+.ab{
+    width:50%;
+    margin-left: auto;
+    margin-right:auto;
+    text-align: center;
+    box-shadow: 0 0.4px 0.7px 0.5px rgba(0,0,0,0.15);
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: transparent;
+    border: 1px solid orange;
+    
+}
+
+
+.food_item{
+
+    display: flex;
+    flex-flow: row;
+    width :540px;
+    flex-wrap:wrap;
+    border:1px solid orange;
+    justify-content: space-evenly;
+    
+    overflow:scroll;
+    height: 600px;
+}
+
+.item_box{
+   
+    display:flex;
+    text-align: center;
+    width:min-content;
+    flex-flow: column;
+    border: 1px solid orange;
+    
+}
+.remove_item {
+
+    display: inline-block;
+    background-color: #c23317;
+    margin-left:auto;
+    margin-right: auto;
+    
+}
+
+
+.one_item p{
+    margin-bottom:0px;
+}
+
+
+nav div {
+    display:inline-block;
+}
+
+
+
+div [content="outer"]{
+    visibility: hidden;
+    position:absolute; 
+    opacity: 0.92;
+    z-index:2;
+    margin-top:20px;
+    height:auto;
+    box-shadow: 0 5px 10px 2px rgba(0,0,0,0.15);
+    margin-left: 2.5%;
+    word-wrap:break-word;
+
+}
+
+
+
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 0.92;}
+}
+.show{
+    
+    background-color: #fff7e6;
+    
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+.bb{
+     box-shadow: 0 0.4px 0.7px 0.5px rgba(0,0,0,0.15);
+     margin-top: 10px;
+     margin-right: 15px;
+     font-size: 18px;
+     background-color: transparent;
+     border: transparent;
+   
+}
+nav .bb:hover{
+    box-shadow: 0 1.2px 0.3px 1px rgba(0,0,0,0.15);
+    transform: translateY(-0.25em);
+}
+
+
+.plan_day p{
+    font-size:12px;
+    margin-top: 0px;
+}
+.center_list .plan{
+    
+
+    border:1px solid orange; 
+    box-shadow: 0 4px 10px 1px rgba(0,0,0,0.15);
+}
+.plan:hover,
+.plan:focus {
+ 
+  box-shadow: 0 12px 20px 3px rgba(0,0,0,0.15);
+  transform: translateY(-0.25em);
+}
+.plan p {
+    font-size:12px;
+    margin-top: 0px;
+}
+
+.center2{
+    display: flex;
+    flex-flow: column;
+}
+.menu_bar{
+    border: 1px solid orange;
+    display:flex; 
+    justify-content:  flex-end;  
+    
+}
+.menu_bar .me{
+    font-size: 20px;
+    margin-left:10px;
+    margin-right:12px;
+    box-shadow: 0 5px 5px 1px rgba(0,0,0,0.15);
+    background-color: transparent;
+    border: transparent;
+    
+    
+}
+.menu_bar .me:hover{
+    font-size: 20px;
+    margin-left:10px;
+    margin-right:12px;
+    box-shadow: 0 5px 5px 1px rgba(0,0,0,0.15);
+    transform: translateY(-0.25em);
+}
+
+.search-container{
+    border:1px solid orange;
+    width:100%;
+}
+
+
+.search-container button:hover {
+    background: #ccc;
+  }
+button:hover{
+    cursor: pointer;
+}
+
+
+#popup_collection #collection{
+    display:inline-flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+} 
+
+#popup_option_list div{
+   margin-top:10px;
+   height:20%; 
+   border: 1px solid orange;
+   box-shadow: 0 3px 5px 1px rgba(0,0,0,0.15);
+}
+#popup_option_list div:hover{
+    margin-top:10px;
+    height:20%; 
+   
+    border: 1px solid orange;
+    box-shadow: 0 3px 5px 1px rgba(0,0,0,0.15);
+    transform: translateY(-0.25em);
+    
+    
+ }
+#popup_option_list div p{
+    margin-top: 20px;
+    text-align: center;
+
+ }
+
+
+
+ins{
+text-decoration: none;
+}
+
+/* CALENDAR */
+#calendarBlock {
+    border:1px solid orange;
+    width: 390px;
+}
+
+#calendarContent {
+    width: 200px;
+    height: 200px;
+    margin-left: 15px;
+    text-align: center;
+}
+
+#calendarContent td,
+th {
+    border: 1px solid black;
+    padding: 3px;
+}
+
+#calendarContent th {
+    height: 25px;
+    font-weight: bold;
+    background-color: #E6E6E6;
+    border: none;
+    padding-left: 20px;
+}
+
+#calendarContent td {
+    border: none;
+    text-align: center;
+    padding-left: 15px;
+}
+
+#calendarContent button{
+    border:none;
+    background-color: transparent;
+}
+
+#calendarContent button:hover{
+    outline: 2px solid blue;
+}
+
+
+.weekdaysList {
+    background-color: rgb(228, 225, 225);
+}
+
+.weekdaysList li{
+    display: inline-block;
+    width: 10.3%;
+ 
+}
+
+.daysList li{
+    list-style-type: none;
+    display: inline-block;
+    width: 9.8%;
+    text-align: center;
+    margin-bottom: 5px;
+    font-size:12px;
+    color: #777;
+}
+
+/* .daysList li button:hover {
+    outline: 2px solid blue;
+} */
+
+#calendarBlock button{
+    text-align: center;
+    background-color: white;
+    border: transparent;
+}
+
+
+.monthBlock .prev {
+    float: left;
+    padding-top: 10px;
+}
+  
+.monthBlock .next {
+    float: right;
+    padding-top: 10px;
+}
+
+.monthBlock ul li {
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.monthBlock {  
+    width: 390px;
+    background: #a9fdec;
+    text-align: center;
+}
+
+  .monthBlock ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  #mealPlanTitle {
+    text-align: center;
+    background-color: rgb(236, 193, 112);
+    margin: 0px;
+  }
+
+.dayStatus {
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.dayStatus li{
+    display: inline-block;
+    margin-left: 50px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+#selectedStatus {
+    width: 15px;
+    height: 15px;
+    border: 2px solid red;
+    display: inline-block  ;
+}
+
+#plannedStatus {
+    width: 15px;
+    height: 15px;
+    background-color: aqua;
+    display: inline-block;
+}
+
+.selectedButton {
+    border: 1px solid blue;
+}
+  
+.daysList li button {
+    outline : 2px solid transparent;
+}
+
+#page_schedule{
+    
+   
+}
+
+#page_article {
+    position:absolute;
+    border:1px solid salmon;
+    width :75%;
+    font-weight: bold;
+    font-size: 35px;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    border-spacing: 5px;
+}
+
+#page_article, button{
+    background-color: transparent;
+    border: transparent;
+    box-shadow: 0 2px 2px 1px rgba(0,0,0,0.15);
+   
+}
+
+#page_article, button:hover{
+    box-shadow: 0 6px 10px 1px rgba(0,0,0,0.15);
+    transform: translateY(-0.14em);
+}
+#page_article .healthy_tab {
+    margin-top: 4%;
+}
+#page_article table, th td {
+
+    width:100%;
+    height: 50%;
+    border-collapse: separate;
+    border-spacing: 15px;
+  }
+  #page_article th, td {  
+    border: 1px solid black;
+    border-collapse: separate;
+    border-spacing: 15px;
+    padding: 5px;
+    text-align: left; 
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: normal;
+  }
+
+  #cancel_collection ,#cancel_option_list{
+    float: right;
+    margin: 10px;
+  }
+
+  [id*="cancel_"]:hover {
+    background-color: rgb(247, 162, 162);
+  }
+
+  [id*="cancel_"] {
+    margin: 10px;
+  }
+
+  /* #cancel_collection:hover ,#cancel_option_list:hover{
+    background-color: rgb(247, 162, 162);
+  } */
+
+  .hoverItem:hover {
+      background-color: rgb(90, 248, 138);
+      cursor:pointer;
+  }
+
+/*
+.blur_dark {
+    
+
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4); 
+      
+}
+.no_blur_dark{
+    -webkit-filter: none;
+    filter: none;
+} */  

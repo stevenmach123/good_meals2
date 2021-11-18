@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel ="stylesheet"  href="main2style.css"></link>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <!-- to fix favicon error -->
+        <link rel="shortcut icon" href="#">
+    </head>
+
+    <!--LUKE NORRIS' CODE STARTS HERE-->
+    <style>
+        .topright {
+            position: absolute;
+            display: inline-block;
+            padding: 0;
+            margin: 0;
+            vertical-align: top;
+            top: 2px;
+            right: 20px;
+            font-size: 18px;
+            width: 25px;
+            height: 25px;
+        }
+
+        /* The Modal (background) */
+        .edit-panel {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 10px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .edit-panel-content {
+            background-color: rgb(236, 193, 112);
+            margin: auto;
+            width: 33.5%;
+            padding: 0px;
+            border: 1px solid #888;
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+
+        #register {
+            margin: auto;
+            margin-top: 5%;   
+            top: 500px;
+            width: 400px;
+            /* border: 3px solid black; */
+            padding: 10px;  
+            background-color: rgb(236, 193, 112);
+        }
+
+        #register h3{
+            
+        }
+
+        #registerTable td{
+            margin: auto;
+            padding: 5px;
+            text-align: center;
+            border: none;
+        }
+
+        #registerTable td input{
+            width: 225px;
+        }
+
+        #registerBtn {
+            width: 100px;
+            height: 50px;
+            font-size: 20px;
+            text-align: center;
+            margin: 10px;
+            background-color: rgb(150, 247, 137);
+            border: none;
+        }
+
+        #registerBtn:hover {
+            border: 2px solid rgb(158, 148, 148);
+        }
+
+        #registerCheckboxes > *{
+            padding: 5px;
+            margin: 5px;
+        }
+
+        #fitnessHint {
+            position:absolute;
+            top:45%;
+            right: 17%;
+            width: 200px;
+            height: 200px;
+            /* background-color: rgb(247, 217, 137); */
+            background-color: rgb(150, 247, 137);
+            visibility: hidden;
+        }
+
+        #fitnessHint p{
+            color: black;
+            padding-left: 10px;
+        }
+
+        #hintBtn {
+            background-color: rgb(150, 247, 137);
+            border: none;
+        }
+
+        #hintBtn:hover {
+            outline: 2px solid rgb(158, 148, 148);
+        }
+    </style>
+    
+    <section class ="sec_head">
+      <div class = "center_user">
+         
+          <h1 style = "text-align: center;background-color: rgb(236, 193, 112);">Good Meals</h1>
+          <div style = "position: relative;">
+          <img style = "border-radius: 50%; display: block;margin-left: auto; margin-right: auto;"
+          id = "ImageFromUser" src = "image_v1/userIcon.png" width="70px" height="70px"></img>
+          <button class = "topright" id = "EditButton">
+            <img src = "image_v1/EDIT_ICON.jpg" style = "display: block; width: 25px; height: 25px;"></img>         
+          </button>
+          <div id="my-edit-panel" class="edit-panel">
+
+            <!-- Modal content -->
+            <div class="edit-panel-content">
+              <span class="close">&times;</span>
+
+                <div id="register">
+                        <h3 style="text-align: center;">Edit Here</h3>
+                        <table id="registerTable">
+                            <tr>
+                                <td>Email</td>
+                                <td ><input type="text" id="email"></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Username</td>
+                                <td ><input type="text" id="username"></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Password</td>
+                                <td ><input type="password" id="password"></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Age</td>
+                                <td ><input type="text" id="age"></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Height</td>
+                                <td ><input type="text" id="height" placeholder="inches (in.)"></td>
+                                <td>in.</td>
+                            </tr>
+                            <tr>
+                                <td>Weight</td>
+                                <td><input type="text"  id = weight placeholder="pounds (lbs)"></td>
+                                <td>lbs</td>
+                            </tr>
+                            <tr>
+                                <td>Fitness Goal</td>
+                                <td><input type="text" id="fitnessGoal" placeholder="none/light/moderate/hard/very hard"></td>
+                                <td><button id="hintBtn" onclick="displayHint()">?</button></td>
+                            </tr>
+                            
+                        </table>
+                        
+                        <div id="registerCheckboxes">
+                            <input type="checkbox" id="veganCheckbox" value="false">
+                            <label>Vegan</label><br>
+                            <input type="checkbox" id="tipsCheckbox" value="false">
+                            <label>Receive healthy eating tips via emails</label><br>
+                        </div>
+                        
+                        <div style="text-align: center;">
+                            <button id="registerBtn" onclick="editInformation()">Confirm Edits</button>
+                        </div>
+            
+                    </div>
+
+                    <div id="fitnessHint">
+                        <p>none: no exercise</p>
+                        <p>light: 1-3 days/week</p>
+                        <p>moderate: 3-5 days/week</p>
+                        <p>hard: 6-7 days/week</p>
+                        <p>very hard: 2x training</p>
+                    </div>  
+
+                </div>
+          </div>
+          </div>
+          
+            <div class="informationPanel">
+            <h4 id = "USERname" style = "text-align: center"></h4>
+            <h4 style = "text-align: center; border: 2px solid black; border-radius: 8px; background-color: rgb(236, 193, 112);">Information</h4>
+            <p id = "USERage"></p>
+            <p id = "USERheight"></p>
+            <p id = "USERweight"></p>
+            <p id = "USERfitnessgoal"></p>
+            <p id = "USERvegan"></p>
+            <h4 style = "text-align: center; border: 2px solid black; border-radius: 8px; background-color: rgb(236, 193, 112);">Daily Limit Intake</h4>
+            <p id = "USERcalories"></p>
+            <p id = "USERvitamin"></p>
+            <p id = "USERsodium"></p>
+            <p id = "USERfat"></p>
+            <p id = "USERprotein"></p>
+        </div>
+      </div>
+      </div>
+      <!--LUKE NORRIS' CODE ENDS HERE-->
+
+
+      <div class="center2"> 
+    
+        <div class="menu_bar">
+    
+            <button id="tab_article" class="me hoverItem"> Article </button>
+            <button id="tab_schedule" class="me hoverItem">Schedule Food</button>
+    
+        </div>
+    
+        <div class= "search-container" >
+            <form>
+                <input type="text" style="width:300px;height:20px;" placeholder="Search.." name="search">
+                <button type="button"  style="height:25px;margin-left:5px;" ><i class="fa fa-search"></i></button> 
+               <!-- <input type="button" ><i style ="right:-20px;" class="fa fa-search"></i></input>  -->
+                <!--<i class="fa fa-search"></i>  -->
+          </form>
+        </div>
+    
+        <div style ="display:flex">
+    
+         <div id= "page_schedule" style ="display:flex; flex-flow: row;">
+           <div class ="center_food">
+    
+            
+            <nav>
+                <button id="nav_meat" class="bb hoverItem" onclick= "bring_list(this)">Meat</button>
+                <button id="nav_vegi" class="bb hoverItem" onclick= "bring_list(this)"  >Vegi</button>
+                <button id="nav_soup" class="bb hoverItem" onclick= "bring_list(this)">Soup</button>
+            </nav>
+    
+            <p id="type_title">MEAT </p>
+    
+            <div class= "main_outer" >
+                <div content="outer" id="popup_chick1"> 
+                    <img id="im1" src = "image_v1/chick1.jpeg" ></img>
+                    <p id="im2" >Chicken fille</p> 
+                    <p id="im3">steam the chick </p>
+                    <button id = "cancel_chick1" onclick="go_delete(this)">CANCEL</button>
+                </div>
+    
+                <div content="outer" id="popup_chick2"> 
+                    <img src = "image_v1/chick2.jpeg" ></img>
+                    <p >Chicken Mexico</p> 
+                    <p>Boil  the chick </p>
+                    <button id = "cancel_chick2" onclick="go_delete(this)" >CANCEL</button>
+                </div>
+    
+                <div content="outer" id="popup_beef1"> 
+                    <img src = "image_v1/beef1.jpeg"></img>
+                    <p >Beef medium</p> 
+                    <p>Oil it</p>
+                    <button id = "cancel_beef1" onclick="go_delete(this)" >CANCEL</button>
+                </div>
+                <div content="outer" id="popup_beef2"> 
+                    <img  src = "image_v1/beef2.jpeg" ></img>
+                    <p >Beef red</p> 
+                    <p>Pepper it</p>
+                    <button id = "cancel_beef2" onclick="go_delete(this)" >CANCEL</button>
+                </div>
+    
+                <div content="outer" id="popup_green1"> 
+                    <img src = "image_v1/green1.jpeg" ></img>
+                    <p >Paste Oilive Salad</p> 
+                    <p>Good vitaminC and  prevent diseases high levels of glucoraphanin   </p>
+                    <button id = "cancel_green1" onclick="go_delete(this)" >CANCEL</button>
+                </div>
+               
+                <div content="outer" id="popup_green2"> 
+                    <img src = "image_v1/green2.jpeg" ></img>
+                    <p >Radish</p> 
+                    <p>antioxidants and rich fiber </p>
+                    <button id = "cancel_green2" onclick="go_delete(this)" >CANCEL</button>
+                </div>
+                
+                
+                
+                <div content="outer" id="popup_green3"> 
+                    <img src = "image_v1/green3.jpeg" ></img>
+                    <p >Spinach</p> 
+                    <p>Reduce blood pressure and aid weight loss  </p>
+                    <button id = "cancel_green3" onclick="go_delete(this)" >CANCEL</button>
+                </div>
+    
+                <div content="outer" id="popup_green4"> 
+                    <img src = "image_v1/green4.jpeg" ></img>
+                    <p >Tomato</p> 
+                    <p>Rich vitaminC and vitamin K and prevent cancer   </p>
+                    <button id = "cancel_green4" onclick="go_delete(this)" >CANCEL</button>
+                </div>
+    
+                <div content="outer" id="popup_soup1"> 
+                    <img src = "image_v1/soup1.jpeg" ></img>
+                    <p >Chader Soup</p> 
+                    <p>Cream and egg, boiling 5min  </p>
+                    <button id = "cancel_soup1" onclick="go_delete(this)" >CANCEL</button>
+                </div>
+    
+                <div content="outer" id="popup_soup2"> 
+                    <img src = "image_v1/soup2.jpeg" ></img>
+                    <p >Mushroom Cream</p> 
+                    <p>Milk, mushroom, green garlic, boiling 5min   </p>
+                    <button id = "cancel_soup2" onclick="go_delete(this)" >CANCEL</button>
+                </div>
+                
+                <div content="outer" id="popup_soup3"> 
+                    <img src = "image_v1/soup3.jpeg" ></img>
+                    <p >Chicken Noodle</p> 
+                    <p> Pasta,chicken boil  </p>
+                    <button id = "cancel_soup3" onclick="go_delete(this)" >CANCEL</button>
+                </div>
+                <div content="outer" id="popup_soup4"> 
+                    <img src = "image_v1/soup4.jpeg" ></img>
+                    <p >Tomato Soup</p> 
+                    <p> Pasta,chicken boil  </p>
+                    <button id = "cancel_soup4" onclick="go_delete(this)" >CANCEL</button>
+                </div>
+    
+    
+                <div content= "outer" id ="popup_option_list">
+                    <ul style="text-align:center;margin-right: 10%;"><p>Select a Meal List for  your <ins id="what_food" style="font-style: italic;"></ins> dish </p> </ul>
+                    <div id ="1" class="hoverItem" onclick ="to_list(this)"><p>BREAKFAST</p></div>
+                    <div id="2" class="hoverItem" onclick ="to_list(this)"><p>LUNCH</p></div>
+                    <div id="3" class="hoverItem" onclick ="to_list(this)"><p>DINNER</p></div>
+                    <button id = "cancel_option_list" onclick="go_delete(this)" >CANCEL</button>
+                </div>
+
+                <div content= "outer" id ="popup_collection">
+                    <div id = "collection"> </div>
+                    <p id="noFoodMessage" style="display: none;">There is no food added to the list</p>
+                    <div style="width:100%; display: flex;"> <button id = "cancel_collection"  onclick="go_delete(this)" >CANCEL</button> </div>
+                </div>
+            </div>
+    
+           
+            <div class= "food_item" id ="meat_item">
+              
+               
+                <div class = "one_item" id ="chick1">
+                    <img id="im1" src = "image_v1/chick1.jpeg" ></img>
+                    <p >Chicken fille</p> 
+                    
+                    <div class = "tri_all">
+                        <p class= "tri0">CALORIES: <ins id="calo">650</ins></p>
+                        <div class= "tri2"> 
+                            <p >PROTEIN <ins id ="protein">22</ins>g</p> 
+                            <p>SODIUM <ins id= "sodium">0.3</ins>g</p>
+                        </div>
+                        <div class= tri2> 
+                            <p>FAT <ins id ="fat">12</ins>g</p> 
+                            <p style ="margin-left:3%">VITAMIN <ins id ="vitamin">90</ins>mg</p> 
+                        </div>
+                  </div>
+                    <button class="ab" id= "add_chick1" onclick="go_add(this)" >Add</button>
+                    <button class="ab" id="but_chick1" onclick = "go_detail(this)"   >Detail</button> 
+                </div>
+    
+                <div class = "one_item" id = "chick2" >
+                    <img src = "image_v1/chick2.jpeg" ></img> 
+                    <p>Chicken mexico</p> 
+    
+                    <div class = "tri_all">
+                        <p class= "tri0">CALORIES: <ins id="calo">440</ins></p>
+                        <div class= "tri2"> 
+                            <p >PROTEIN <ins id ="protein">12</ins>g</p> 
+                            <p>SODIUM <ins id= "sodium">0.5</ins>g</p>
+                        </div>
+                        <div class= tri2> 
+                            <p >FAT <ins  id ="fat">30</ins>g</p> 
+                            <p style ="margin-left:3%">VITAMIN <ins id ="vitamin">150</ins>mg</p> 
+                        </div>
+                  </div>
+    
+                    <button class="ab" id= "add_chick2" onclick="go_add(this)" >Add</button>
+                    <button  class="ab" id="but_chick2" onclick = "go_detail(this)" >Detail</button > 
+                </div>  
+                <div class = "one_item" id ="beef1">
+                    <img src = "image_v1/beef1.jpeg" ></img> 
+                    <p>Beef medium</p> 
+    
+                    <div class = "tri_all">
+                        <p class= "tri0">CALORIES: <ins id="calo">670</ins></p>
+                        <div class= "tri2"> 
+                            <p>PROTEIN <ins id ="protein">10</ins>g</p> 
+                            <p >SODIUM <ins id= "sodium">1.1</ins>g</p>
+                        </div>
+                        <div class= tri2> 
+                            <p  >FAT <ins id ="fat">17</ins>g</p> 
+                            <p style ="margin-left:3%" >VITAMIN <ins id ="vitamin">120</ins>mg</p> 
+                        </div>
+                  </div>
+                    <button  class="ab" id= "add_beef1" onclick="go_add(this)">Add</button >
+                    <button  class="ab" id="but_beef1" onclick = "go_detail(this)"   >Detail</button > 
+                </div> 
+                <div class = "one_item" id ="beef2">
+                    <img src = "image_v1/beef2.jpeg" ></img> 
+                    <p>Beef red</p> 
+                    <div class = "tri_all">
+                        <p class= "tri0">CALORIES: <ins id="calo">1200</ins></p>
+                        <div class= "tri2"> 
+                            <p >PROTEIN <ins id ="protein">15</ins>g</p> 
+                            <p >SODIUM <ins id= "sodium">0.3</ins>g</p>
+                        </div>
+                        <div class= tri2> 
+                            <p>FAT <ins id ="fat">12</ins>g</p> 
+                            <p style ="margin-left:3%">VITAMIN <ins id ="vitamin">110</ins>mg</p> 
+                        </div>
+                  </div>
+    
+                    <button  class="ab" id= "add_beef2" onclick="go_add(this)" >Add</button >
+                    <button  class="ab" id="but_beef2" onclick = "go_detail(this)"  >Detail</button > 
+                </div> 
+                <div class = "one_item" id = "chick3">
+                    <img src = "image_v1/chick3.jpeg" ></img> 
+                    <p>Beef tarariki</p>  
+    
+                    <div class = "tri_all">
+                        <p class= "tri0">CALORIES: <ins id="calo">940</ins></p>
+                        <div class= "tri2"> 
+                            <p >PROTEIN <ins id ="protein">18</ins>g</p> 
+                            <p >SODIUM <ins id= "sodium">0.5</ins>g</p>
+                        </div>
+                        <div class= tri2> 
+                            <p  >FAT <ins id ="fat">9</ins>g</p> 
+                            <p style ="margin-left:3%" >VITAMIN <ins id ="vitamin">30</ins>mg</p> 
+                        </div>
+                  </div>
+    
+                    <button  class="ab" id= "add_chick3"  onclick="go_add(this)">Add</button >
+                    <button  class="ab" id="but_chick3" onclick = "go_detail(this)">Detail</button > 
+                </div> 
+            </div>
+    
+            <div class ="food_item" id="vegi_item"  >
+                <div class = "one_item" id ="green1">
+                    <img src = "image_v1/green1.jpeg" ></img>
+                    <p >Paste Oilive Salad</p> 
+    
+                    <div class = "tri_all">
+                        <p class= "tri0">CALORIES: <ins id="calo">300</ins></p>
+                        <div class= "tri2"> 
+                            <p  >PROTEIN <ins id ="protein">3</ins>g</p> 
+                            <p >SODIUM <ins id= "sodium">0.3</ins>g</p>
+                        </div>
+                        <div class= tri2> 
+                            <p >FAT <ins id ="fat">8</ins>g</p> 
+                            <p style ="margin-left:3%">VITAMIN <ins id ="vitamin">560</ins>mg</p> 
+                        </div>
+                  </div>
+                    <button  class="ab" id= "add_green1" onclick="go_add(this)" >Add</button >
+                    <button  class="ab" id="but_green1" onclick = "go_detail(this)"   >Detail</button > 
+                </div>
+                <div class = "one_item" id ="green2">
+                    <img id="im1" src = "image_v1/green2.jpeg" ></img>
+                    <p >Spinach Bread Salad</p> 
+    
+    
+                    <div class = "tri_all">
+                        <p class= "tri0">CALORIES: <ins id="calo">130</ins></p>
+                        <div class= "tri2"> 
+                            <p>PROTEIN <ins id ="protein">11</ins>g</p> 
+                            <p >SODIUM <ins id= "sodium">0.7</ins>g</p>
+                        </div>
+                        <div class= tri2> 
+                            <p  >FAT <ins id ="fat">12</ins>g</p> 
+                            <p style ="margin-left:3%" >VITAMIN <ins id ="vitamin">780</ins>mg</p> 
+                        </div>
+                  </div>
+    
+                    <button  class="ab" id= "add_green2" onclick="go_add(this)" >Add</button >
+                    <button  class="ab" id="but_green2" onclick = "go_detail(this)"   >Detail</button> 
+                </div>
+    
+                <div class = "one_item" id ="green3">
+                    <img id="im1" src = "image_v1/green3.jpeg" ></img>
+                    <p >Advocado Nut</p> 
+    
+                    <div class = "tri_all">
+                        <p class= "tri0" >CALORIES: <ins id="calo">94</ins></p>
+                        <div class= "tri2"> 
+                            <p>PROTEIN <ins id ="protein">7</ins>g</p> 
+                            <p>SODIUM <ins id= "sodium">0.2</ins>g</p>
+                        </div>
+                        <div class= tri2> 
+                            <p >FAT <ins id ="fat">16</ins>g</p> 
+                            <p style ="margin-left:3%">VITAMIN <ins id ="vitamin">780</ins>mg</p> 
+                        </div>
+                  </div>
+    
+                    <button  class="ab" id= "add_green3" onclick="go_add(this)" >Add</button >
+                    <button  class="ab" id="but_green3" onclick = "go_detail(this)"   >Detail</button > 
+                </div>
+    
+                <div class = "one_item" id ="green4">
+                    <img id="im1" src = "image_v1/green4.jpeg" ></img>
+                    <p >Chicken Salad</p> 
+    
+                    <div class = "tri_all">
+                        <p class= "tri0">CALORIES: <ins id="calo">460</ins></p>
+                        <div class= "tri2"> 
+                            <p >PROTEIN <ins id ="protein">12</ins>g</p> 
+                            <p >SODIUM <ins id= "sodium">0.3</ins>g</p>
+                        </div>
+                        <div class= tri2> 
+                            <p >FAT <ins id ="fat">11</ins>g</p> 
+                            <p style ="margin-left:3%">VITAMIN <ins id ="vitamin">460</ins>mg</p> 
+                        </div>
+                  </div>
+    
+                    <button  class="ab" id= "add_green4" onclick="go_add(this)" >Add</button >
+                    <button  class="ab" id="but_green4" onclick = "go_detail(this)"   >Detail</button > 
+                </div>
+    
+    
+    
+            </div>
+    
+            <div class ="food_item" id="soup_item" >
+                <div class = "one_item" id ="soup1">
+                    <img  src = "image_v1/soup1.jpeg" style =></img>
+                    <p >Chader Soup</p> 
+    
+                    <div class = "tri_all">
+                        <p class= "tri0" >CALORIES: <ins id="calo">150</ins></p>
+                        <div class= "tri2"> 
+                            <p  >PROTEIN <ins id ="protein">17</ins>g</p> 
+                            <p >SODIUM <ins id= "sodium">0.4</ins>g</p>
+                        </div>
+                        <div class= tri2> 
+                            <p>FAT <ins id ="fat">21</ins>g</p> 
+                            <p style ="margin-left:3%">VITAMIN <ins id ="vitamin">410</ins>mg</p> 
+                        </div>
+                  </div>
+    
+                    <button class="ab" id= "add_soup1" onclick="go_add(this)" >Add</button>
+                    <button  class="ab" id="but_soup1" onclick = "go_detail(this)"   >Detail</button > 
+                </div>
+                <div class = "one_item" id ="soup2">
+                    <img  src = "image_v1/soup2.jpeg" style =></img>
+                    <p >Mushroom Cream</p> 
+                    
+                    <div class = "tri_all">
+                        <p class= "tri0" >CALORIES: <ins id="calo">320</ins></p>
+                        <div class= "tri2"> 
+                            <p>PROTEIN <ins id ="protein">7</ins>g</p> 
+                            <p >SODIUM <ins id= "sodium">0.4</ins>g</p>
+                        </div>
+                        <div class= tri2> 
+                            <p>FAT <ins id ="fat">20</ins>g</p> 
+                            <p style ="margin-left:3%">VITAMIN <ins id ="vitamin">325</ins>mg</p> 
+                        </div>
+                  </div>
+    
+                    <button  class="ab" id= "add_soup2" onclick="go_add(this)" >Add</button >
+                    <button  class="ab" id="but_soup2" onclick = "go_detail(this)" >Detail</button > 
+                </div>
+    
+                <div class = "one_item" id ="soup3">
+                    <img  src = "image_v1/soup3.jpeg" style=></img>
+                    <p >Chicken Noodle</p> 
+    
+                    <div class = "tri_all">
+                        <p class= "tri0" >CALORIES: <ins id="calo">350</ins></p>
+                        <div class= "tri2"> 
+                            <p >PROTEIN <ins id ="protein">15</ins>g</p> 
+                            <p>SODIUM <ins id= "sodium">0.4</ins>g</p>
+                        </div>
+                        <div class= tri2> 
+                            <p>FAT <ins id ="fat">20</ins>g</p> 
+                            <p style ="margin-left:3%">VITAMIN <ins id ="vitamin">280</ins>mg</p> 
+                        </div>
+                    </div>
+                    <button  class="ab" id= "add_soup3" onclick="go_add(this)" >Add</button >
+                    <button  class="ab" id="but_soup3" onclick = "go_detail(this)" >Detail</button > 
+                </div>
+    
+                <div class = "one_item" id ="soup4">
+                    <img  src = "image_v1/soup4.jpeg" style =></img>
+                    <p >Tomato Soup</p> 
+    
+                    <div class = "tri_all">
+                        <p class= "tri0" >CALORIES: <ins id="calo">330</ins></p>
+                        <div class= "tri2"> 
+                            <p>PROTEIN <ins id ="protein">12</ins>g</p> 
+                            <p >SODIUM <ins id= "sodium">0.2</ins>g</p>
+                        </div>
+                        <div class= tri2> 
+                            <p>FAT <ins id ="fat">12</ins>g</p> 
+                            <p style ="margin-left:3%" >VITAMIN <ins id ="vitamin">340</ins>mg</p> 
+                        </div>
+                    </div>
+    
+                    <button  class="ab" id= "add_soup4" onclick="go_add(this)" >Add</button >
+                    <button  class="ab" id="but_soup4" onclick = "go_detail(this)" >Detail</button > 
+                </div>
+    
+    
+    
+            </div>
+      
+        </div>  
+    
+        
+    
+        <div class ="center_list">
+            <!-- *************START CALENDAR******************* -->
+            <div id="calendarBlock">
+    
+                <div class="monthBlock">      
+                    <ul>
+                        <li class="prev"><button>&#10094;</button onclick="window.nextMonth()"></li>
+                        <li class="next"><button>&#10095;</button onclick="window.previousMonth()"></li>
+                        <li id="month">March</li>
+                        <li id="year">2000</li>
+                    </ul>
+                </div>
+              
+                <div id="calendarContent"></div>
+        
+                <ul class="dayStatus" > 
+                    <li><label id="selectedStatus"></label>  selected</li>
+                    <li><label id="plannedStatus"></label>  planned</li>
+                </ul>
+            </div>
+    
+            <div id="mealPlanTitle">
+                <p>MEAl PLANS</p>
+                <p id="planDate">4-3-2021</p>
+            </div>
+    
+            <!-- *************END CALENDAR******************* -->
+            <div class="plan_day"> 
+                <div class= "tri2">
+                    <p >PROTEIN <ins id ="protein">0</ins> / <ins class ="cap_protein">0</ins> g</p>
+                    <p  >SODIUM <ins id="sodium">0</ins> / <ins class ="cap_sodium">0</ins> g</p>
+                    </div>
+                    <div class= "tri2"> 
+                    <p >FAT <ins id="fat">0</ins> / <ins class ="cap_fat">0</ins> g</p>
+                    <p >VITAMIN <ins id ="vitamin">0</ins> / <ins class ="cap_vitamin">0</ins> mg</p>
+                    </div>
+                    <p style="margin-left:3%;" >TOTAL CALORIES: <ins id="calo">0</ins> / <ins class="cap_calo">0</ins> gcal</p>
+                    <p style ="margin-left:3%; display:inline-block" > TOTAL ITEMs: <ins id="num_item">0</ins> </p>
+                
+            </div>
+
+            <div style="display:flex; flex-flow: column;  padding-left: 15px; "> 
+                <div style="margin-left:auto;margin-right: auto;margin-top: 10px;background-color:#ff9966"> ALERT </div> 
+                
+                <div id ="alert_nutri">
+                    
+                   <!--    <p  id="near" style= "visibility: hidden; position:absolute">fdfdd;;;;;d</p>    -->
+                
+            
+                    
+                </div>
+                
+            </div>  
+
+            <div class="plan hoverItem" id="li1" onclick ="see_list(this)" > 
+              
+               <p style="font-size:15px; text-align: center;">BREAKFAST</p> 
+    
+               <div class= "tri2"> 
+                <p >ITEMs: <ins id="num_item" >0</ins></p> 
+               <p >CALORIES: <ins id="calo" >0</ins> gcal</p> 
+               </div> 
+            </div>
+            <div class ="plan hoverItem" id ="li2" onclick ="see_list(this)" > 
+            
+               <p style="font-size:15px; text-align: center;" >LUNCH</p> 
+               <div class= "tri2"> 
+                <p >ITEMs: <ins id="num_item" >0</ins></p> 
+                <p >CALORIES: <ins id="calo" >0</ins> gcal</p> 
+                </div> 
+            
+            </div>
+            <div class="plan hoverItem" id ="li3"  onclick ="see_list(this)" >
+                <p style="font-size:15px;text-align: center;"  >DINNER </p> 
+               
+                <div class= "tri2"> 
+                    <p >ITEMs: <ins id="num_item" >0</ins></p> 
+                    <p >CALORIES: <ins id="calo" >0</ins> gcal</p> 
+                 </div> 
+            </div>
+         </div>    
+         
+        </div>   <!--2center -->    
+    
+        <div id="page_article"> 
+                
+            <p style="border: 1px solid sandybrown;margin-bottom: 0%;"> Articles </p>
+
+            <button style=""id="click_healthy1">Diet Tips</button>
+            <button id ="click_healthy2">Healthy Eat</button> 
+            <div class="healthy_tab" id = "healthy1"> 
+                <table>
+
+                    <tr>
+                        <th><a href="https://www.pharmacytimes.com/view/exercise-healthy-diet-in-midlife-may-prevent-serious-health-conditions-in-senior-years" target="_blank">Exercise, Healthy Diet in Midlife May Prevent Serious Health Conditions in Senior Years</a><br>
+                        Author: Jill Murphy <br>
+                        Description: The article discusses how eating healthy and exercising can lead to better health later in life. The article focuses mostly on cardiometabolic health in middle and old age. 
+                        </th>
+
+                    </tr>
+
+
+                    <tr>
+                        <th><a href="https://abcnews.go.com/Health/obesity-rise-best-diet-tailored-genes-experts/story?id=76606570" target="_blank">With obesity on the rise, the best diet may be tailored to our genes, experts say</a><br>
+                        Author: Dr. L. Nedda Dastmalchi <br>
+                        Description: This article discusses nutrigenomics, which is focuses on creating diets more suited to a person's genetics. The hope is that people will be given more effective diets based on their genetics as this field grows. 
+                        </th>
+
+                    </tr>
+
+                    <tr>
+                        <th><a href="https://www.medicalnewstoday.com/articles/too-much-salt" target="_blank">What is an excessive amount of dietary salt?</a><br>
+                        Author: Anna Smith<br>
+                        Description: The artilce discusses the balance on what a healthy amount of sodium is for a person's diet. The article also has many differnt sections it goes over on the benefits and detrements of sodium intake. 
+                        </th>
+
+                    </tr>
+
+                    <tr>
+                        <th><a href="https://www.insider.com/how-to-enjoy-bread-healthy-diet-according-to-dietitians-2021-4" target="_blank">3 dietitians who eat bread every day say you shouldn't be afraid of the carb. Here's how to eat it without derailing your diet.</a><br>
+                        Author: Gabby Landsverk <br>
+                        Description: This article goes over how bread and carbs in general can fit into a healthy diet. The artilce also goes over the different ways to eat bread to be healthier. 
+                        </th>
+
+                    </tr>
+
+                    <tr>
+                        <th><a href="https://foodtank.com/news/2021/04/a-plant-forward-diet-can-be-delicious-and-diverse/" target="_blank">A Plant-Forward Diet Can Be Delicious and Diverse</a><br>
+                        Author: Elena Seeley <br>
+                        Description: The artilce discusses how vegetables can be integrated more into a normal diet for most people. The bulk of the information is provided by chefs from East and South Asia. 
+                        </th>
+
+                    </tr>
+
+
+                </table>
+            </div>
+            <div class="healthy_tab" id="healthy2" style="display:none">
+                <table>
+                    <tr>
+                        <th><a href="https://www.self.com/story/healthy-eating-and-food-access" target="_blank">We Can’t Talk About Healthy Eating Without Discussing Food Access</a><br>
+                        Author: Jessica Jones <br>
+                        Description: This article goes over the idea of what the main stream depicts healthy eating as rather than what Jones claims it should really mean. Jones also goes over the porblems of food access in America and how it can effect someone's eating habits. 
+                        </th>
+
+                    </tr>
+
+                    <tr> 
+                        <th><a href="https://www.eatthis.com/underrated-healthy-eating-tips/" target="_blank">6 Underrated Healthy Eating Tips That Actually Work</a><br>
+                        Author: Samantha Boesch<br>
+                        Description: This article gives six helpful tips on how to make healthy eating more accessable and manageable. 
+                        </th>
+
+                    </tr>
+
+                    <tr>
+                        <th><a href="https://www.medicalnewstoday.com/articles/unhealthy-fruits" target="_blank">Which fruits are better for you based on diet and health goals?</a><br>
+                        Author: Adrienne Seitz, MS, RD, LDN  <br>
+                        Description: This article goes over how the health bennefits of fruits effect different people, and that some fruits may not be as healthy as others. The article also lists commonly eaten fruits and shows their health statistics. 
+                        </th>
+
+                    </tr>
+
+                    <tr>
+                        <th><a href="https://www.gobankingrates.com/saving-money/food/how-to-eat-healthy-on-a-budget/" target="_blank">26 Ways to Eat Healthy Without Breaking the Bank</a><br>
+                        Author: Karen Doyle <br>
+                        Description: This artilce goes over different ways to be able to eat healthy foods without spending too much money. The tips are broken up into different sections based on the grocery shopping process. 
+                        </th>
+
+                    </tr>
+
+                    <tr>
+                        <th><a href="https://www.insider.com/how-to-start-eating-healthy" target="_blank">6 easy ways to start eating healthy, according to dietitians</a><br>
+                        Author: Erin Heger <br>
+                        Description: This article goes over several tips provided to help someone start eating healthy. These tips are general ideas to consider when making or buying meals. 
+                        </th>
+
+                    </tr>
+
+                </table>
+
+            </div>
+    </div>
+</div> <!-- 2 center + article -->
+
+
+</div> <!-- 2 center + article   + search  -->       
+    
+    
+    
+    
+    
+    
+    
+    </section>
+      <!--  <section> 
+        <div class="ty1">
+            <div class ="ty"> fdfdf</div>
+            <div class="ty">fdf</div>
+        </div>
+        <div id="select_item">
+            
+        </div>
+    </section>   -->
+      
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="classes.js"></script>
+        <script src="main2j.js"></script>
+        <script src="information.js"></script>
+        <script>
+            var panel_for_editing = document.getElementById("my-edit-panel");
+            var panel_for_editing_button = document.getElementById("EditButton");
+            var span = document.getElementsByClassName("close")[0];
+            panel_for_editing_button.onclick = function() {
+                panel_for_editing.style.display = "block";
+
+                // put the previous infomation of the users to the textboxes
+                putPreviousInformation();
+
+                // add the event handler the the textboxes to highlight all
+                // the text when the users click on them
+                document.getElementById("email").onclick = highlightText;
+                document.getElementById("username").onclick = highlightText;
+                document.getElementById("password").onclick = highlightText;
+                document.getElementById("age").onclick = highlightText;
+                document.getElementById("height").onclick = highlightText;
+                document.getElementById("weight").onclick = highlightText;
+                document.getElementById("fitnessGoal").onclick = highlightText;
+            }
+            span.onclick = function() {
+                panel_for_editing.style.display = "none";   
+            }
+
+            // function to put information of the users to the edit textboxes
+            function putPreviousInformation(){
+                document.getElementById("email").value = localStorage.getItem("email");
+                document.getElementById("username").value = localStorage.getItem("username");
+                document.getElementById("password").value = localStorage.getItem("password");
+                document.getElementById("age").value = localStorage.getItem("age");
+                document.getElementById("height").value = localStorage.getItem("height");
+                document.getElementById("weight").value = localStorage.getItem("weight");
+                document.getElementById("fitnessGoal").value = localStorage.getItem("finessGoal");
+                document.getElementById("veganCheckbox").checked = localStorage.getItem("vegan") == "true" ? true : false;
+                document.getElementById("tipsCheckbox").checked = localStorage.getItem("tips") == "true" ? true : false;
+            }
+
+            // highlight the text in textbox when the users click on it
+            function highlightText(){
+                this.focus();
+                this.select();
+            }
+
+            window.onclick = function(event) {
+                if (event.target == panel_for_editing) {
+                    panel_for_editing.style.display = "none";
+                }
+            }
+        </script>    
+    </html>

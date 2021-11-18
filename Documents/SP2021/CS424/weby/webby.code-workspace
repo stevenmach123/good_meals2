@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"name": "weby",
+			"path": "../../../../.."
+		}
+	],
+	"settings": {
+		"liveServer.settings.port": 5503,
+		"liveServer.settings.multiRootWorkspaceName": "weby"
+	}
+}

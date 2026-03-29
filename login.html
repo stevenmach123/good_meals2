@@ -1,66 +1,114 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-<title>GOOD MEALS</title>
-	<!--[if lt IE 9]><script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script><![end if]-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GOOD MEALS</title>
+    <!--[if lt IE 9]><script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script><![end if]-->
     <link rel="shortcut icon" href="#">
 </head>
 <style>
+    :root {
+        --card-bg: rgba(255, 245, 222, 0.92);
+        --btn: #7bc46b;
+        --btn-hover: #5f9f51;
+        --muted: #56615a;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
     body {
-        background: url(goodmeals.jpg) no-repeat center center fixed; 
-        background-size: cover; 
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(rgba(9, 18, 11, 0.52), rgba(9, 18, 11, 0.52)),
+            url(goodmeals.jpg) no-repeat center center fixed;
+        background-size: cover;
     }
 
     #login {
-        margin: auto;
-        margin-top: 10%;   
-        top: 400px;
-        width: 300px;
-        /* border: 3px solid black; */
-        padding: 10px;  
-        text-align: center;  
-        background-color: rgb(236, 193, 112);
-   }
+        width: min(420px, 92vw);
+        padding: 30px 26px 18px;
+        text-align: center;
+        border-radius: 16px;
+        background-color: var(--card-bg);
+        box-shadow: 0 22px 36px rgba(0, 0, 0, 0.25);
+    }
 
-   #loginTable td{
-        margin: auto;
-        padding: 5px;
-   }
+    #loginTable {
+        width: 100%;
+        border-spacing: 0 10px;
+    }
 
-   #username {
-       width: 200px;
-   }
+    #loginTable td {
+        text-align: left;
+        padding: 0 4px;
+    }
 
-   #password {
-       width: 200px;
-   }
+    #loginTable td:first-child {
+        width: 30%;
+        font-weight: 600;
+        color: #2f3a33;
+    }
 
-   #loginBtn {
-       width: 80px;
-       height:40px;
-       margin:10px;
-       background-color: rgb(150, 247, 137);
-       border: none;
-   }
+    #username,
+    #password {
+        width: 100%;
+        border: 1px solid #c0c9c4;
+        border-radius: 10px;
+        padding: 10px;
+        font-size: 0.95rem;
+    }
 
-   #loginBtn:hover {
-        outline: 2px solid rgb(158, 148, 148);
-   }
+    #loginBtn {
+        min-width: 115px;
+        height: 42px;
+        margin: 12px 0 4px;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #10200f;
+        background-color: var(--btn);
+        border: none;
+        border-radius: 999px;
+        cursor: pointer;
+        transition: transform 0.18s ease, background-color 0.18s ease;
+    }
 
-   #wrongCredentials {
-        color: red;
+    #loginBtn:hover {
+        background-color: var(--btn-hover);
+        transform: translateY(-1px);
+    }
+
+    #wrongCredentials {
+        display: inline-block;
+        margin-bottom: 8px;
+        color: #b22222;
+        font-size: 0.92rem;
         visibility: hidden;
-   }
+    }
 
+    #registerLink {
+        margin-top: 10px;
+        color: var(--muted);
+        font-size: 0.95rem;
+    }
+
+    #registerLink a {
+        color: #245f38;
+        font-weight: 600;
+    }
 </style>
 
 <script type="text/javascript" src="credentials.js"></script>
 
 <body>
     <div id="login">
-        <h3 style="font-size: x-large;">Log in</h3>
-        <label  id="wrongCredentials">Wrong username or password</label>
+        <h3 style="font-size: 1.6rem; margin: 0 0 10px;">Log in</h3>
+        <label id="wrongCredentials">Wrong username or password</label>
 
         <table id="loginTable">
             <tr>
@@ -71,12 +119,12 @@
                 <td>Password</td>
                 <td><input type="password" id="password"></td>
             </tr>
-            
+
         </table>
-            <button id="loginBtn" onclick="checkLoginCredentials()">Log in</button>
-        <p>Don't have account? <a href="register.html">Register</a></p>
+        <button id="loginBtn" onclick="checkLoginCredentials()">Log in</button>
+        <p id="registerLink">Don't have an account? <a href="register.html">Register</a></p>
     </div>
-    
+
 </body>
 
 </html>

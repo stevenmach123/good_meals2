@@ -1,84 +1,133 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-<title>GOOD MEALS</title>
-	<!--[if lt IE 9]><script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script><![end if]-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GOOD MEALS</title>
+    <!--[if lt IE 9]><script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script><![end if]-->
     <link rel="shortcut icon" href="#">
 </head>
 <style>
-    body {
-        background: url(goodmeals.jpg) no-repeat center center fixed; 
-        background-size: cover; 
+    :root {
+        --card-bg: rgba(255, 245, 222, 0.93);
+        --btn: #7bc46b;
+        --btn-hover: #5f9f51;
+        --text: #2b352f;
     }
 
-   #register {
-        margin: auto;
-        margin-top: 5%;   
-        top: 500px;
-        width: 400px;
-        /* border: 3px solid black; */
-        padding: 10px;  
-        background-color: rgb(236, 193, 112);
-   }
+    * {
+        box-sizing: border-box;
+    }
 
-   #register h3{
+    body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(rgba(9, 18, 11, 0.52), rgba(9, 18, 11, 0.52)),
+            url(goodmeals.jpg) no-repeat center center fixed;
+        background-size: cover;
+    }
+
+    #register {
+        width: min(560px, 95vw);
+        padding: 24px;
+        border-radius: 16px;
+        background-color: var(--card-bg);
+        box-shadow: 0 22px 36px rgba(0, 0, 0, 0.24);
+    }
+
+    #register h3 {
         text-align: center;
-   }
+        margin: 0 0 16px;
+        font-size: 1.6rem;
+    }
 
-   #registerTable td{
-        margin: auto;
-        padding: 5px;
-        text-align: center;
-   }
+    #registerTable {
+        width: 100%;
+        border-spacing: 0 10px;
+    }
 
-   #registerTable td input{
-        width: 250px;
-   }
+    #registerTable td {
+        padding: 0 6px;
+        color: var(--text);
+    }
 
-   #registerBtn {
-       width: 100px;
-       height: 40px;
-       font-size: 20px;
-       text-align: center;
-       margin: 10px;
-       background-color: rgb(150, 247, 137);
-       border: none;
-   }
+    #registerTable td:first-child {
+        width: 26%;
+        font-weight: 600;
+        text-align: right;
+    }
 
-   #registerBtn:hover {
-        border: 2px solid rgb(158, 148, 148);
-   }
+    #registerTable td input {
+        width: 100%;
+        border: 1px solid #c0c9c4;
+        border-radius: 10px;
+        padding: 10px;
+        font-size: 0.95rem;
+    }
 
-   #registerCheckboxes > *{
-       padding: 5px;
-       margin: 5px;
-   }
+    #registerBtn {
+        width: 130px;
+        height: 44px;
+        font-size: 1rem;
+        font-weight: 600;
+        margin: 14px 0 2px;
+        color: #10200f;
+        background-color: var(--btn);
+        border: none;
+        border-radius: 999px;
+        cursor: pointer;
+        transition: transform 0.18s ease, background-color 0.18s ease;
+    }
 
-   #fitnessHint {
-       position:absolute;
-       top:45%;
-        right: 17%;
-       width: 200px;
-       height: 200px;
-       /* background-color: rgb(247, 217, 137); */
-       background-color: rgb(150, 247, 137);
+    #registerBtn:hover {
+        background-color: var(--btn-hover);
+        transform: translateY(-1px);
+    }
+
+    #registerCheckboxes {
+        margin-top: 6px;
+        padding: 10px 6px 4px;
+        border-top: 1px solid rgba(0, 0, 0, 0.12);
+    }
+
+    #registerCheckboxes > * {
+        margin: 5px 3px;
+    }
+
+    #fitnessHint {
+        position: fixed;
+        right: max(20px, 4vw);
+        bottom: 24px;
+        width: min(280px, 80vw);
+        padding: 10px 12px;
+        border-radius: 12px;
+        background-color: rgba(123, 196, 107, 0.96);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         visibility: hidden;
-   }
+    }
 
-   #fitnessHint p{
-       color: black;
-        padding-left: 10px;
-   }
+    #fitnessHint p {
+        margin: 6px 0;
+        color: #0f2610;
+        font-size: 0.9rem;
+    }
 
-   #hintBtn {
-       background-color: rgb(150, 247, 137);
-       border: none;
-   }
+    #hintBtn {
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background-color: #eaf5e4;
+        border: 1px solid #b9c9bb;
+        font-weight: 700;
+        cursor: pointer;
+    }
 
-   #hintBtn:hover {
-        outline: 2px solid rgb(158, 148, 148);
-   }
+    #hintBtn:hover {
+        background-color: #d9ecd3;
+    }
 
 </style>
 
@@ -90,32 +139,32 @@
         <table id="registerTable">
             <tr>
                 <td>Email</td>
-                <td ><input type="text" id="email"></td>
+                <td><input type="text" id="email"></td>
                 <td></td>
             </tr>
             <tr>
                 <td>Username</td>
-                <td ><input type="text" id="username"></td>
+                <td><input type="text" id="username"></td>
                 <td></td>
             </tr>
             <tr>
                 <td>Password</td>
-                <td ><input type="password" id="password"></td>
+                <td><input type="password" id="password"></td>
                 <td></td>
             </tr>
             <tr>
                 <td>Age</td>
-                <td ><input type="text" id="age"></td>
+                <td><input type="text" id="age"></td>
                 <td></td>
             </tr>
             <tr>
                 <td>Height</td>
-                <td ><input type="text" id="height" placeholder="inches (in.)"></td>
+                <td><input type="text" id="height" placeholder="inches (in.)"></td>
                 <td>in.</td>
             </tr>
             <tr>
                 <td>Weight</td>
-                <td><input type="text"  id = weight placeholder="pounds (lbs)"></td>
+                <td><input type="text" id=weight placeholder="pounds (lbs)"></td>
                 <td>lbs</td>
             </tr>
             <tr>
@@ -123,22 +172,22 @@
                 <td><input type="text" id="fitnessGoal" placeholder="none/light/moderate/hard/very hard"></td>
                 <td><button id="hintBtn" onclick="displayHint()">?</button></td>
             </tr>
-            
+
         </table>
-        
+
         <div id="registerCheckboxes">
             <input type="checkbox" id="veganCheckbox" value="false">
             <label>Vegan</label><br>
             <input type="checkbox" id="tipsCheckbox" value="false">
             <label>Receive healthy eating tips via emails</label><br>
         </div>
-        
+
         <div style="text-align: center;">
             <a href="login.html">
                 <button id="registerBtn" onclick="getUserInfo()">Register</button>
             </a>
         </div>
-        
+
     </div>
 
     <div id="fitnessHint">
@@ -148,7 +197,7 @@
         <p>hard: 6-7 days/week</p>
         <p>very hard: 2x training</p>
     </div>
-    
+
 </body>
 
 </html>
